@@ -1,0 +1,31 @@
+<div id="headline" *ngIf="document">
+  <h1 itemprop="name" *ngIf="document.title">
+    {{document.title}}
+    <span class="subtitle" *ngIf="document.subTitle"> : {{document.subTitle}}</span>
+  </h1>
+</div>
+<div class="detail_block" *ngIf="document">
+  <p id="authors_short" *ngIf="document.author">
+    <span *ngFor="let author of document.author">
+      <span *ngIf="author.type == 'edt'">
+        <a href="#">
+          {{author.name}}
+          <a *ngIf="author.gnd" title="Link zu GND" href="http://d-nb.info/gnd/{{author.gnd}}"><sup>GND</sup></a>
+        </a>
+      (Hrsg.);
+      </span>
+      <span *ngIf="author.type == 'aut'">
+        <a href="#">
+          {{author.name}}
+          <a *ngIf="author.gnd" title="Link zu GND" href="http://d-nb.info/gnd/{{author.gnd}}"><sup>GND</sup></a>
+        </a>
+        ;
+      </span>
+    </span>
+  </p>
+  <div class="ellipsis ellipsis-text" style="word-wrap: break-word;" *ngIf="document.abstract">
+    <p>
+      <span itemprop="description">{{document.abstract}}</span>
+    </p>
+  </div>
+</div> 

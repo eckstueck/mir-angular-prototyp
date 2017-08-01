@@ -1,0 +1,64 @@
+<div id="hit_list" *ngIf="documents">
+  <span *ngFor="let doc of documents.documents; let count = index">
+    <div class="hit_item"> 
+      <div class="row hit_item_head">
+        <div class="col-xs-12">
+          <div class="hit_counter">{{count}}</div>
+          <div title="Relevanz des Treffers in Bezug auf alle Treffer dieser Suche: 100%" class="hit_stars_5 hit_stars">
+            <div class="hit_star_1 hit_star"></div>
+            <div class="hit_star_2 hit_star"></div>
+            <div class="hit_star_3 hit_star"></div>
+            <div class="hit_star_4 hit_star"></div>
+            <div class="hit_star_5 hit_star"></div>
+          </div>
+          <div class="single_hit_option pull-right">
+            <a title="" href="#"
+              class="hit_option hit_to_basket"><span class="fa fa-bookmark"></span>auf die Merkliste</a>
+          </div>
+        </div>
+      </div>
+      <div class="row hit_item_body">
+        <div class="col-xs-12">
+          <div class="hit_download_box">
+            <a title="{{doc.genre | genre}}" href="#" [routerLink]="['../mir', doc.id]"
+              class="hit_option hit_download">
+              <img src="http://www.mycore.de/mir/images/icons/icon_common_disabled.png" class="hit_icon">
+            </a>
+          </div>
+          <div class="hit_tnd_container">
+            <div class="hit_tnd_content">
+              <div class="hit_type">
+                <span class="label label-info">{{doc.genre | genre}}</span>
+              </div>
+              <div class="hit_date">
+                <span class="label label-primary">{{doc.date}}</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="hit_title">
+            <a href="#" title="{{doc.title}} : {{doc.subTitle}}" [routerLink]="['../mir', doc.id]">{{doc.title}}<span class="subtitle"> : {{doc.subTitle}}</span></a>
+          </h3>
+          <div class="hit_author" *ngIf="doc.author">
+            <span *ngFor="let author of doc.author">
+              <span *ngIf="author.type == 'edt'">
+                <a href="#">
+                  {{author.name}}
+                  <a *ngIf="author.gnd" title="Link zu GND" href="http://d-nb.info/gnd/{{author.gnd}}"><sup>GND</sup></a>
+                </a>
+              (Hrsg.);
+              </span>
+              <span *ngIf="author.type == 'aut'">
+                <a href="#">
+                  {{author.name}}
+                  <a *ngIf="author.gnd" title="Link zu GND" href="http://d-nb.info/gnd/{{author.gnd}}"><sup>GND</sup></a>
+                </a>
+                ;
+              </span>
+            </span>
+          </div>
+          <div class="hit_abstract">{{doc.abstract}}</div>
+        </div>
+      </div>
+    </div>
+  </span>
+</div>

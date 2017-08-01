@@ -1,0 +1,11 @@
+<div id="badges" *ngIf="document">
+  <a *ngIf="document.genre" href="#"
+    class="mods_genre label label-info">{{document.genre | genre}}</a>
+  <time *ngIf="document.date" title="" data-toggle="tooltip" itemprop="datePublished" data-original-title="Publication date">
+    <span class="date_published label label-primary">{{document.date | date:"d MMMM yyyy"}}</span>
+  </time>
+  <a *ngIf="document.accessCondition" href="#" class="access_condition label label-success">{{document.accessCondition | uppercase}}</a>
+  <div class="doc_state" *ngIf="document.state">
+    <span title="Publikationsstatus" class="label label-success mir-published">{{document.state | state}}</span>
+  </div>
+</div>

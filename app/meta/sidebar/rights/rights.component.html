@@ -1,0 +1,13 @@
+<div class="panel panel-default" id="mir_access_rights_panel" *ngIf="document && document.accessCondition">
+  <div class="panel-heading">
+    <h3 class="panel-title">Rechte</h3>
+  </div>
+  <div class="panel-body">
+    <p>
+      <strong>Nutzung und Vervielfältigung:</strong>
+      <br>
+      <a *ngIf="document.accessCondition == 'cc_by_4.0'" href="http://creativecommons.org/licenses/by/4.0/" rel="license"><img src="//i.creativecommons.org/l/by/4.0/88x31.png"></a>
+      <span *ngIf="document.accessCondition == 'rights_reserved'">Alle Rechte vorbehalten</span>
+    </p>
+  </div>
+</div>

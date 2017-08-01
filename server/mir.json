@@ -1,0 +1,86 @@
+{
+    "documents": [
+        {
+            "id": "mir_mods_00000003",
+            "state": "published",
+            "genre": "article",
+            "title": "Open-Access-Publikationsfonds",
+            "subTitle": "Handreichung",
+            "lang": "de",
+            "author": [ {
+                    "name": "Arbeitsgruppe Open Access der Schwerpunktinitiative",
+                    "type": "edt"
+                },
+                {
+                    "name": "Bruch, Christoph",
+                    "type": "red"
+                },
+                {
+                    "name": "Fournier, Johannes",
+                    "type": "red",
+                    "gnd": "120310287"
+                },
+                {
+                    "name": "Pampel, Heinz",
+                    "type": "red",
+                    "gnd": "133013103"
+                }
+            ],
+            "date": "2014-09",
+            "doi": "10.2312/allianzoa.006",
+            "abstract": "Die Arbeitsgruppe Open Access in der Schwerpunktinitiative \"Digitale Information\" der Allianz der deutschen Wissenschaftsorganisationen hat heute die Veröffentlichung der Handreichung \"Open-Access-Publikationsfonds\" bekannt gegeben.\r\n\r\nZentrales Anliegen von Publikationsfonds ist es, den Transformationsprozess von subskriptionsbasiertem zu Publikationsgebühren-basiertem Open-Access-Publizieren effizient und nachhaltig zu gestalten.",
+            "typeOfResource": "Text",
+            "accessCondition": "cc_by_4.0"
+        },
+        {
+            "id": "mir_mods_00000008",
+            "state": "published",
+            "genre": "article",
+            "title": "Standardisierte Nutzungsstatistiken für Open-Access-Repositorien und -Publikationsdienste",
+            "lang": "de",
+            "author": [ {
+                    "name": "DFG-Projekt Open-Access-Statistik",
+                    "type": "aut"
+                },
+                {
+                    "name": "DINI-Arbeitsgruppe Elektronisches Publizieren",
+                    "type": "aut"
+                },
+                {
+                    "name": "Deutsche Initiative für Netzwerkinformation (DINI)",
+                    "type": "edt"
+                }
+            ],
+            "date": "2013-10-02",
+            "urn": "urn:nbn:de:kobv:11-100212755",
+            "abstract": "Der Dienst Open-Access-Statistik (OA-Statistik) stellt Repositorien und Publikationsdiensten standardisierte Nutzungsstatistiken für Dokumente zur Verfügung. Erklärtes Ziel ist es, so die Akzeptanz von Open Access bei Autorinnen und Autoren sowie bei Leserinnen und Lesern von wissenschaftlichen Publikationen zu erhöhen. Im Gegensatz zu zitationsbasierten Metriken, die den Einfluss einer Publikation retrospektiv bewerten, geben Nutzungsstatistiken aktuelle Relevanz eines digitalen Dokumentes wieder und können so dynamische Trends des World Wide Web abbilden. Im Rahmen des DFG-geförderten Projekts OA-Statistik wurde eine Infrastruktur zur Erfassung und Verarbeitung von standardisierten Nutzungsdaten aufgebaut, die nach Ablauf der zweiten Förderphase im Sommer 2013 an die Verbundzentrale des GBV (VZG) übergeben wurde.",
+            "typeOfResource": "Text",
+            "accessCondition": "rights_reserved"
+        },
+        {
+            "id": "mir_mods_00000007",
+            "state": "published",
+            "genre": "poster",
+            "title": "MyCoRe öffnet Online-Welten zu Archiven, Repositorien und Katalogen",
+            "lang": "de",
+            "author": [ {
+                    "name": "Oeltjen, Wiebke",
+                    "type": "aut"
+                },
+                {
+                    "name": "Neumann, Kathleen",
+                    "type": "aut"
+                },
+                {
+                    "name": "Neumann, Til",
+                    "type": "ill"
+                }
+            ],
+            "date": "2014",
+            "abstract": "MyCoRe ist ein Framework zum Erstellen von Repository-Webanwendungen: Digitale Inhalte und Metadaten erschließen, recherchieren und präsentieren.",
+            "typeOfResource": "Text",
+            "accessCondition": "rights_reserved"
+        }
+
+    ] 
+}

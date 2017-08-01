@@ -1,0 +1,12 @@
+<div class="col-xs-12" *ngIf="document">
+  <ul class="breadcrumb" itemprop="breadcrumb">
+    <li>
+      <a href="#" class="navtrail">Start</a>
+    </li>
+    <li>
+      <a href="#"
+        class="navtrail">{{document.genre | genre}}</a>
+    </li>
+    <li class="active">{{document.title}}</li>
+  </ul>
+</div>

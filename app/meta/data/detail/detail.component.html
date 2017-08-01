@@ -1,0 +1,33 @@
+<div class="mir_metadata" *ngIf="document">
+  <h3>Einordnung</h3>
+  <dl>
+    <dt *ngIf="document.author">Beteiligte Personen:</dt>
+    <dd *ngIf="document.author">
+      <span *ngFor="let author of document.author">
+        <a href="#" *ngIf="author.type != 'edt' || author.type != 'aut'">
+          {{author.name}}
+          <a *ngIf="author.gnd" title="Link zu GND" href="http://d-nb.info/gnd/{{author.gnd}}"><sup>GND</sup></a>
+        </a>
+        ;
+      </span>
+    </dd>
+    <dt *ngIf="document.date">Datum der Veröffentlichung:</dt>
+    <dd *ngIf="document.date">
+      {{document.date | date:"dd.MM.yyyy"}}
+    </dd>
+    <dt *ngIf="document.doi">DOI:</dt>
+    <dd *ngIf="document.doi">
+      <a href="http://nbn-resolving.de/{{document.doi}}">{{document.doi}}</a>
+    </dd>
+    <dt *ngIf="document.urn">URN:</dt>
+    <dd *ngIf="document.urn">
+      <a href="https://doi.org/{{document.urn}}">{{document.urn}}</a>
+    </dd>
+    <dt *ngIf="document.lang">Sprache:</dt>
+    <dd *ngIf="document.lang">
+      {{document.lang | language}}
+    </dd>
+    <dt *ngIf="document.typeOfResource">Ressourcentyp:</dt>
+    <dd *ngIf="document.typeOfResource">Text</dd>
+  </dl>
+</div>

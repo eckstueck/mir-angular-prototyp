@@ -1,0 +1,40 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Zitieren</h3>
+  </div>
+  <div class="panel-body">
+    <script src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js" type="text/javascript"></script>
+    <div class="altmetric-embed altmetric-hidden" data-hide-no-mentions="true" data-doi="10.2312/allianzoa.006" data-badge-type="donut"
+      data-badge-details="right" data-uuid="7a319c69-e628-1ebb-8c98-408385d983cc"></div>
+    <div data-theme="white" class="shariff">
+      <ul class="theme-white orientation-horizontal col-4">
+        <li class="shariff-button twitter"><a href="#"
+            rel="popup" title="Bei Twitter teilen" role="button" aria-label="Bei Twitter teilen"><span class="fa fa-twitter"></span><span class="share_text">tweet</span></a></li>
+        <li
+          class="shariff-button facebook"><a href="#"
+            rel="popup" title="Bei Facebook teilen" role="button" aria-label="Bei Facebook teilen"><span class="fa fa-facebook"></span><span class="share_text">teilen</span></a></li>
+          <li
+            class="shariff-button googleplus"><a href="#" rel="popup"
+              title="Bei Google+ teilen" role="button" aria-label="Bei Google+ teilen"><span class="fa fa-google-plus"></span><span class="share_text">+1</span></a></li>
+            <li
+              class="shariff-button info"><a href="#" target="_blank" title="weitere Informationen" role="button" aria-label="weitere Informationen"><span class="fa fa-info"></span><span class="share_text">Info</span></a></li>
+      </ul>
+    </div>
+    <div id="citation-style" *ngIf="document">
+      <span><strong>Zitierform:</strong></span><select id="crossref-cite" class="form-control input-sm"><option>deutsche-sprache</option><option>apa</option><option>bibtex</option><option>elsevier-harvard</option><option>springer-basic-author-date</option><option>din-1505-2</option></select>
+      <p id="citation-text">  
+        <span *ngFor="let author of document.author">
+          <span *ngIf="author.type == 'edt'">
+              {{author.name}}:
+          </span>
+        </span>
+        {{document.title}}.
+        <span *ngIf="document.subTitle">{{document.subTitle}}.</span>
+        {{document.date | date:"yyyy"}}
+      </p>
+    </div>
+    <p id="cite_link_box">
+      <a class="label label-info" href="#" id="copy_cite_link">Zitier-Link kopieren</a>
+    </p>
+  </div>
+</div>
