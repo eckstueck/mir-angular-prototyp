@@ -6,8 +6,8 @@ import { APIDocument } from '../../../apiDocument';
 
 @Component({
   selector: 'mir-title',
-  templateUrl: '../app/meta/data/title/title.component.html',
-  styleUrls: ['../app/meta/data/title/title.component.css']
+  templateUrl: './app/meta/data/title/title.component.html',
+  styleUrls: ['./app/meta/data/title/title.component.css']
 })
 export class TitleComponent implements OnInit {
   @Input() document: APIDocument;

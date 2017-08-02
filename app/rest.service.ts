@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 
@@ -9,20 +9,21 @@ import { APIDocument } from './apiDocument'
 
 @Injectable()
 export class RestService {
-    getDocumentsURL: string = "/api"
-    getDocumentURL: string = "/api/"
+    getDocumentsURL: string = "api"
+    getDocumentURL: string = "api/"
 
-    constructor(private http: Http) { }
+    constructor(private http: Http,
+                @Inject('ORIGIN_URL') private originUrl: string) {}
 
     getDocuments(): Promise<APIDocuments> {
-        return this.http.get(this.getDocumentsURL)
+        return this.http.get(this.originUrl + this.getDocumentsURL)
                     .toPromise()
                     .then(res => res.json() as APIDocuments)
                     // .catch(this.handleError)
     }
 
     getDocument(docId: string): Promise<APIDocument> {
-        return this.http.get(this.getDocumentURL + docId)
+        return this.http.get(this.originUrl + this.getDocumentURL + docId)
                     .toPromise()
                     .then(res => res.json() as APIDocument)
                     // .catch(this.handleError)

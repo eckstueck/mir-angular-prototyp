@@ -8,8 +8,8 @@ import { APIDocuments } from '../apiDocuments';
 
 @Component({
   selector: 'app-search',
-  templateUrl: '../app/search/search.component.html',
-  styleUrls: ['../app/search/search.component.css']
+  templateUrl: './app/search/search.component.html',
+  styleUrls: ['./app/search/search.component.css']
 })
 export class SearchComponent implements OnInit {
   documents: APIDocuments

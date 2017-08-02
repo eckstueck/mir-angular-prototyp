@@ -33,6 +33,7 @@ import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './search/filter/filter.component';
 import { ListComponent } from './search/list/list.component';
 import { StartComponent } from './start/start.component';
+import { AppRoutingModule } from './app-routing.module';
 
 const appRoutes: Routes = [
   { path: 'mir/:docId', component: MetaComponent },
@@ -43,12 +44,13 @@ const appRoutes: Routes = [
 
 @NgModule({
   imports:      [
-    BrowserModule,
+    BrowserModule.withServerTransition({appId: 'mir-angular-prototyp'}),
     HttpModule,
     RouterModule.forRoot(appRoutes),
     NgbModule.forRoot(),
     DndModule.forRoot(),
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   declarations: [ 
     AppComponent,
@@ -76,7 +78,7 @@ const appRoutes: Routes = [
     ListComponent,
     StartComponent
 ],
-  providers: [RestService, CommunicationService],
+  providers: [RestService, CommunicationService, { provide: 'ORIGIN_URL', useValue: 'http://localhost:3000/'}],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

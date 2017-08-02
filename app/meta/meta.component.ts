@@ -8,8 +8,8 @@ import { APIDocument } from '../apiDocument';
 
 @Component({
   selector: 'mir-meta',
-  templateUrl: '../app/meta/meta.component.html',
-  styleUrls: ['../app/meta/meta.component.css']
+  templateUrl: './app/meta/meta.component.html',
+  styleUrls: ['./app/meta/meta.component.css']
 })
 export class MetaComponent implements OnInit {
   document: APIDocument
