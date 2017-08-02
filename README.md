@@ -1,7 +1,7 @@
-MIR Angular Prototyp
+MIR Angular Universal Prototyp
 ============
 
-This is a quick and dirty Prototyp of MIR with Angular. This is not the original MIR, visit MyCoRe-Org/mir for the real MIR.
+This is a quick and dirty Prototyp of MIR with Angular Universal. This is not the original MIR, visit MyCoRe-Org/mir for the real MIR.
 The Prototyp uses only mockup data and static html and css from the real MIR. You can just view the start, search and metadata page, all other functionality are disabled or not implemented yet.
 
 Installation
