@@ -9,6 +9,7 @@ import { APIDocument } from '../../apiDocument';
 })
 export class BreadcrumbComponent implements OnInit {
   @Input() document: APIDocument;
+  @Input() genres: string;
 
   constructor() { }
 

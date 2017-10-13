@@ -1,12 +1,12 @@
 <section>
     <div id="page" class="container">
         <div id="main_content">
-            <mir-breadcrumb [(document)]="document" class="row detail_row bread_plus"></mir-breadcrumb>
+            <mir-breadcrumb [(document)]="document" [(genres)]="genres" class="row detail_row bread_plus"></mir-breadcrumb>
             <mir-browsing class="row detail_row"></mir-browsing>
             <div class="col-xs-12">
                 <div class="row">
                     <mir-actions class="col-xs-12 col-sm-4 col-sm-push-8 col-md-4 col-md-push-8"></mir-actions>
-                    <mir-badges [(document)]="document" class="col-xs-12 col-sm-8 col-sm-pull-4 col-md-8 col-md-pull-4"></mir-badges>
+                    <mir-badges [(document)]="document" [(genres)]="genres" class="col-xs-12 col-sm-8 col-sm-pull-4 col-md-8 col-md-pull-4"></mir-badges>
                 </div>
             </div>
             <mir-data [(document)]="document" class="col-xs-12 col-sm-8"></mir-data>

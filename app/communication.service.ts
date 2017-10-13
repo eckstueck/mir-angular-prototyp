@@ -3,12 +3,12 @@ import {Observable} from 'rxjs/Observable';
 import {Subject} from 'rxjs/Subject';
 
 import { APIDocument } from './apiDocument'
-import { APIDocuments } from './apiDocuments'
+import { SolrDocuments } from './solrDocuments'
 
 @Injectable()
 export class CommunicationService {
   private _currentDocument = new Subject<APIDocument>();
-  private _currentDocuments = new Subject<APIDocuments>();
+  private _currentDocuments = new Subject<SolrDocuments>();
 
   currentDocument = this._currentDocument.asObservable();
   currentDocuments = this._currentDocuments.asObservable();
@@ -17,7 +17,7 @@ export class CommunicationService {
     this._currentDocument.next(document);
   }
 
-  setcurrentDocuments(documents: APIDocuments) {
+  setcurrentDocuments(documents: SolrDocuments) {
     this._currentDocuments.next(documents);
   }
 }

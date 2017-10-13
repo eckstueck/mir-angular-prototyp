@@ -12,7 +12,8 @@ import { APIDocument } from '../apiDocument';
   styleUrls: ['../app/meta/meta.component.css']
 })
 export class MetaComponent implements OnInit {
-  document: APIDocument
+  document: APIDocument;
+  genres: string;
 
   constructor(private _path: ActivatedRoute,
               private _comService: CommunicationService,
@@ -22,9 +23,13 @@ export class MetaComponent implements OnInit {
   ngOnInit() {
     this._path.queryParams.subscribe(query => {
       let params = this._path.snapshot.params;
+      // this._restService.getDocument(params['docId']);
       this._restService.getDocument(params['docId']).then(newDocument => {
-        this.document = newDocument;
+        this.document = new APIDocument(newDocument);
         this._comService.setcurrentDocument(this.document);
+      });
+      this._restService.getClassifications("mir_genres").then(classifications => {
+        this.genres = classifications;
       });
     });
 

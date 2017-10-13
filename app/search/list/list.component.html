@@ -1,9 +1,14 @@
-<div id="hit_list" *ngIf="documents">
+<div class="row result_head" *ngIf="documents">
+  <div class="col-xs-12 result_headline">
+    <h1>{{documents.numFound}} Dokumente gefunden</h1>
+  </div>
+</div>
+<div id="hit_list" *ngIf="documents && genres">
   <span *ngFor="let doc of documents.documents; let count = index">
     <div class="hit_item"> 
       <div class="row hit_item_head">
         <div class="col-xs-12">
-          <div class="hit_counter">{{count}}</div>
+          <div class="hit_counter">{{(documents.start / documents.rows) * documents.rows + count + 1}}</div>
           <div title="Relevanz des Treffers in Bezug auf alle Treffer dieser Suche: 100%" class="hit_stars_5 hit_stars">
             <div class="hit_star_1 hit_star"></div>
             <div class="hit_star_2 hit_star"></div>
@@ -28,15 +33,15 @@
           <div class="hit_tnd_container">
             <div class="hit_tnd_content">
               <div class="hit_type">
-                <span class="label label-info">{{doc.genre | genre}}</span>
+                <span class="label label-info">{{doc.genre | genre: genres}}</span>
               </div>
               <div class="hit_date">
-                <span class="label label-primary">{{doc.date}}</span>
+                <span class="label label-primary">{{doc.date | date:"d MMMM yyyy"}}</span>
               </div>
             </div>
           </div>
           <h3 class="hit_title">
-            <a href="#" title="{{doc.title}} : {{doc.subTitle}}" [routerLink]="['../mir', doc.id]">{{doc.title}}<span class="subtitle"> : {{doc.subTitle}}</span></a>
+            <a href="#" title="{{doc.title}} : {{doc.subTitle}}" [routerLink]="['../mir', doc.id]">{{doc.title}}<span class="subtitle" *ngIf="doc.subTitle"> : {{doc.subTitle}}</span></a>
           </h3>
           <div class="hit_author" *ngIf="doc.author">
             <span *ngFor="let author of doc.author">
@@ -61,4 +66,34 @@
       </div>
     </div>
   </span>
+</div>
+<div class="result_list_end"></div>
+<div class="pagination_box text-center" *ngIf="documents && documents.numFound > documents.rows">
+  <ul class="pagination pagination-sm" id="solr-result-paginate">
+    <li [ngClass]="{'disabled': documents.start == 0}">
+      <span (click)="goToPage(0)" [routerLink]="['../search', {'query': documents.query, 'start': 0}]">«
+        <span class="sr-only">erste Seite</span>
+      </span>
+    </li>
+    <li [ngClass]="{'disabled': documents.start == 0}">
+      <span (click)="goToPage((documents.start / documents.rows) - 1)" [routerLink]="['../search', {'query': documents.query, 'start': ((documents.start / documents.rows) - 1) * documents.rows}]">‹
+        <span class="sr-only">vorherige Seite</span>
+      </span>
+    </li>
+    <ng-container *ngFor="let row of getPagesArray(); let count = index">
+      <li [ngClass]="{'active': documents.start / documents.rows == row}">
+        <a (click)="goToPage(row)" [routerLink]="['../search', {'query': documents.query, 'start': row * documents.rows}]">{{row + 1 }}</a>
+      </li>
+    </ng-container>
+    <li [ngClass]="{'disabled': documents.start + documents.rows >= documents.numFound}">
+      <a id="solr-result-next" (click)="goToPage((this.documents.start / this.documents.rows) + 1)" [routerLink]="['../search', {'query': documents.query, 'start': ((this.documents.start / this.documents.rows) + 1) * documents.rows}]">›
+        <span class="sr-only">nächste Seite</span>
+      </a>
+    </li>
+    <li [ngClass]="{'disabled': documents.start + documents.rows >= documents.numFound}">
+      <a id="solr-result-last" (click)="goToPage(getNumPages())" [routerLink]="['../search', {'query': documents.query, 'start': getNumPages() * documents.rows}]">»
+        <span class="sr-only">letzte Seite (1055)</span>
+      </a>
+    </li>
+  </ul>
 </div>

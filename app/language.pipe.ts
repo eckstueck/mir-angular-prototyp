@@ -9,6 +9,9 @@ export class LanguagePipe implements PipeTransform {
     if (value == "de") {
       return "Deutsch";
     }
+    if (value == "en") {
+      return "Englisch";
+    }
     return null;
   }
 

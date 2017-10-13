@@ -5,11 +5,9 @@
     </div>
     <div class="searchfield_box">
       <form role="search" class="navbar-form navbar-left pull-right" action="">
-        <button class="btn btn-primary" type="submit" [routerLink]="['../search']"><i class="fa fa-search"></i></button>
+        <button class="btn btn-primary" type="submit" [routerLink]="['../search', {'query': searchInput, 'start': 0}]"><i class="fa fa-search"></i></button>
         <div class="form-group">
-          <input type="text" id="searchInput" class="form-control search-query" placeholder="Suche" name="condQuery">
-          <input
-            value="createdby:guest" type="hidden" name="owner">
+          <input type="text" id="searchInput" class="form-control search-query" placeholder="Suche" name="condQuery" [(ngModel)]="searchInput">
         </div>
       </form>
     </div>

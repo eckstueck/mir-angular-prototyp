@@ -1,6 +1,6 @@
-<div id="badges" *ngIf="document">
+<div id="badges" *ngIf="document && genres">
   <a *ngIf="document.genre" href="#"
-    class="mods_genre label label-info">{{document.genre | genre}}</a>
+    class="mods_genre label label-info">{{document.genre | genre: genres}}</a>
   <time *ngIf="document.date" title="" data-toggle="tooltip" itemprop="datePublished" data-original-title="Publication date">
     <span class="date_published label label-primary">{{document.date | date:"d MMMM yyyy"}}</span>
   </time>

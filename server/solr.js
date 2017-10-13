@@ -10,18 +10,14 @@ parser.on('error', function(err) { console.log('Parser error', err); });
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-    const data = require('./mir.json');
-    res.json(data);
-});
-
-router.get('/:docId', (req, res) => {
-    const getDocumentURL = "https://www.db-thueringen.de/api/v1/objects/" + req.params.docId;
+    const getDocumentURL = "https://www.db-thueringen.de/servlets/solr/select?q=title:" + req.query.query + "&wt=json&fq=objectType:mods&start=" + req.query.start + "&rows=" + req.query.rows;
     let originalRes = res;
     let xmlData = "";
     https.get(getDocumentURL, (res) => {
 
         res.pipe(concat(function(buffer) {
             var str = buffer.toString();
+            // console.log(str);
             originalRes.send(str);
             // parser.parseString(str, function(err, result) {
             //     originalRes.json(result);

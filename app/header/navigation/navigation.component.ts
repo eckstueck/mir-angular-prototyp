@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['../app/header/navigation/navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
+  searchInput: string = "*";
 
   constructor() { }
 

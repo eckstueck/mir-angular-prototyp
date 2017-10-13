@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 
 // Get our API routes
 const api = require('./server/api');
+const solr = require('./server/solr');
+const classifications = require('./server/classifications');
 
 const app = express();
 
@@ -18,6 +20,10 @@ app.use(express.static(__dirname));
 
 // Set our api routes
 app.use('/api', api);
+
+app.use('/solr', solr);
+
+app.use('/classifications', classifications);
 
 // Catch all other routes and return the index file
 app.get('*', (req, res) => {
