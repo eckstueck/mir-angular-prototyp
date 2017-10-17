@@ -39,7 +39,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
-    { path: 'mir/:docId', component: MetaComponent, canActivate: [AuthGuard] },
+    { path: 'mir/:docId', component: MetaComponent/*, canActivate: [AuthGuard]*/ },
     { path: 'mir', component: StartComponent },
     { path: '', component: StartComponent },
     { path: 'search', component: SearchComponent },
@@ -82,7 +82,7 @@ const appRoutes: Routes = [
         StartComponent,
         LoginComponent
     ],
-    providers: [AUTH_PROVIDERS, AuthService, AuthGuard, RestService, CommunicationService],
+    providers: [/*AUTH_PROVIDERS, AuthService, AuthGuard, */RestService, CommunicationService],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
