@@ -10,7 +10,8 @@ parser.on('error', function(err) { console.log('Parser error', err); });
 
 /* GET api listing. */
 router.get('/', (req, res) => {
-    const getDocumentURL = "https://www.db-thueringen.de/servlets/solr/select?q=title:" + req.query.query + "&wt=json&fq=objectType:mods&start=" + req.query.start + "&rows=" + req.query.rows;
+	const getDocumentURL = "https://www.db-thueringen.de/servlets/solr/find?condQuery=" + req.query.query + "&wt=json&fq=objectType:mods&start=" + req.query.start + "&rows=" + req.query.rows;
+    console.log(getDocumentURL);
     let originalRes = res;
     let xmlData = "";
     https.get(getDocumentURL, (res) => {

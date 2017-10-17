@@ -26,6 +26,10 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/http@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@angular/http/-/http-2.1.1.tgz#6cec2c675aa0b8f8e7f809d617e4cde5b713437a"
+
 "@angular/http@~4.3.2":
   version "4.3.2"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.3.2.tgz#851a56b700e6cfde669776883d32b0481e0d5307"
@@ -87,6 +91,16 @@ ajv@^4.9.1:
 angular-in-memory-web-api@~0.3.2:
   version "0.3.2"
   resolved "https://registry.yarnpkg.com/angular-in-memory-web-api/-/angular-in-memory-web-api-0.3.2.tgz#8836d9e2534d37b728f3cb5a1caf6fe1e7fbbecd"
+
+angular2-jsonwebtoken@^0.8.1:
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/angular2-jsonwebtoken/-/angular2-jsonwebtoken-0.8.1.tgz#fb9075d34b7d7f7e71f13977a218fd6c7fb2add8"
+  dependencies:
+    "@angular/http" "2.1.1"
+
+angular2-jwt@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/angular2-jwt/-/angular2-jwt-0.2.3.tgz#54efdda3ceedba85f6a37b165f22ac22b8adf021"
 
 ansi-regex@^0.2.0, ansi-regex@^0.2.1:
   version "0.2.1"
@@ -2258,6 +2272,10 @@ yargs@6.4.0:
     window-size "^0.2.0"
     y18n "^3.2.1"
     yargs-parser "^4.1.0"
+
+yarn@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/yarn/-/yarn-1.2.1.tgz#0d628dc01438881a1663a6f83cbf7ac5db7a75fc"
 
 yeast@0.1.2:
   version "0.1.2"

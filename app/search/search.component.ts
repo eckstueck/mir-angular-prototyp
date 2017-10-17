@@ -27,7 +27,7 @@ export class SearchComponent implements OnInit {
     this._path.queryParams.subscribe(query => {
       let params = this._path.snapshot.params;
       this._restService.getSolrDocuments(params.query, params.start, 20).then(newDocuments => {
-        // console.log(newDocuments);
+        console.log(newDocuments);
         // this.documents = newDocuments;
         this._comService.setcurrentDocuments(newDocuments);
       });
