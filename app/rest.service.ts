@@ -18,9 +18,9 @@ export class RestService {
     // getDocumentURL: string = "https://www.db-thueringen.de/api/v1/objects/dbt_mods_00032997/";
     getDocumentURL: string = "/api/"
     getClassificationsURL: string = "/classifications/"
-    
 
-    constructor(private http: Http) { 
+
+    constructor(private http: Http) {
         // var xml = "<root>Hello xml2js!</root>"
         // parseString(xml, function (err, result) {
         //     console.dir(result);
@@ -28,14 +28,16 @@ export class RestService {
     }
 
     getSolrDocuments(query: string, start: number, rows: number): Promise<SolrDocuments> {
-        return this.http.get(this.getDocumentsURL, {params: {
-            query: query,
-            start: start,
-            rows: rows
-        }})
-                    .toPromise()
-                    .then(res => new SolrDocuments(res.json()))
-                    // .catch(this.handleError)
+        return this.http.get(this.getDocumentsURL, {
+            params: {
+                query: query,
+                start: start,
+                rows: rows
+            }
+        })
+            .toPromise()
+            .then(res => new SolrDocuments(res.json()))
+        // .catch(this.handleError)
     }
 
     // getDocument(docId: string){
@@ -54,19 +56,19 @@ export class RestService {
 
     getDocument(docId: string): Promise<string> {
         return this.http.get(this.getDocumentURL + docId)
-                    .toPromise()
-                    .then(res => res.text())
-                    // .catch(this.handleError)
+            .toPromise()
+            .then(res => res.text())
+        // .catch(this.handleError)
     }
 
     getClassifications(classID: string): Promise<string> {
         return this.http.get(this.getClassificationsURL + classID)
-                    .toPromise()
-                    .then(res => res.text())
-                    // .catch(this.handleError)
+            .toPromise()
+            .then(res => res.text())
+        // .catch(this.handleError)
     }
 
-    private handleError (error: Response) {
+    private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server error');
     }

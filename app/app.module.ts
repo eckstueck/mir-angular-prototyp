@@ -6,6 +6,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule }   from '@angular/forms';
 import { DndModule } from 'ng2-dnd';
+import { AUTH_PROVIDERS } from 'angular2-jwt';
 
 import { AppComponent }  from './app.component';
 import { MetaComponent }  from './meta/meta.component';
@@ -33,50 +34,55 @@ import { SearchComponent } from './search/search.component';
 import { FilterComponent } from './search/filter/filter.component';
 import { ListComponent } from './search/list/list.component';
 import { StartComponent } from './start/start.component';
+import { LoginComponent } from './auth/login.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
-  { path: 'mir/:docId', component: MetaComponent },
-  { path: 'mir', component: StartComponent },
-  { path: '', component: StartComponent },
-  { path: 'search', component: SearchComponent },
+    { path: 'mir/:docId', component: MetaComponent/*, canActivate: [AuthGuard]*/ },
+    { path: 'mir', component: StartComponent },
+    { path: '', component: StartComponent },
+    { path: 'search', component: SearchComponent },
+    { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
-  imports:      [
-    BrowserModule,
-    HttpModule,
-    RouterModule.forRoot(appRoutes),
-    NgbModule.forRoot(),
-    DndModule.forRoot(),
-    FormsModule
-  ],
-  declarations: [ 
-    AppComponent,
-    MetaComponent,
-    HeaderComponent,
-    FooterComponent,
-    NavigationComponent,
-    BadgesComponent,
-    BreadcrumbComponent,
-    BrowsingComponent,
-    DataComponent,
-    TitleComponent,
-    SidebarComponent,
-    ActionsComponent,
-    CitationComponent,
-    RightsComponent,
-    ExportComponent,
-    DetailComponent,
-    LanguagePipe,
-    DatePipe,
-    GenrePipe,
-    StatePipe,
-    SearchComponent,
-    FilterComponent,
-    ListComponent,
-    StartComponent
-],
-  providers: [RestService, CommunicationService],
-  bootstrap:    [ AppComponent ]
+    imports: [
+        BrowserModule,
+        HttpModule,
+        RouterModule.forRoot(appRoutes),
+        NgbModule.forRoot(),
+        DndModule.forRoot(),
+        FormsModule
+    ],
+    declarations: [
+        AppComponent,
+        MetaComponent,
+        HeaderComponent,
+        FooterComponent,
+        NavigationComponent,
+        BadgesComponent,
+        BreadcrumbComponent,
+        BrowsingComponent,
+        DataComponent,
+        TitleComponent,
+        SidebarComponent,
+        ActionsComponent,
+        CitationComponent,
+        RightsComponent,
+        ExportComponent,
+        DetailComponent,
+        LanguagePipe,
+        DatePipe,
+        GenrePipe,
+        StatePipe,
+        SearchComponent,
+        FilterComponent,
+        ListComponent,
+        StartComponent,
+        LoginComponent
+    ],
+    providers: [/*AUTH_PROVIDERS, AuthService, AuthGuard, */RestService, CommunicationService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 // Get our API routes
 const api = require('./server/api');
+const auth = require('./server/auth');
 const solr = require('./server/solr');
 const classifications = require('./server/classifications');
 
@@ -20,6 +21,8 @@ app.use(express.static(__dirname));
 
 // Set our api routes
 app.use('/api', api);
+
+app.use('/auth', auth);
 
 app.use('/solr', solr);
 

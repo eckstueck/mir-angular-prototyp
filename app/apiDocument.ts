@@ -18,12 +18,12 @@ export class APIDocument {
     accessCondition: string;
 
     constructor(documentXML: any) {
-        // console.log($.parseXML(documentXML));
+        console.log($.parseXML(documentXML));
         let xml = $($.parseXML(documentXML));
         let apiDoc = this;
         this.id = xml.find("mycoreobject").attr("ID");
         this.state = xml.find("servstate").attr("categid");
-        let genreString = xml.find($.escapeSelector("mods:genre") + "[type='intern']").attr("valueURI").split("#");
+        let genreString = (xml.find($.escapeSelector("mods:genre") + "[type='intern']").attr("valueURI") || "").split("#");
         this.genre = genreString[genreString.length - 1];
         this.title = xml.find($.escapeSelector("mods:title")).html();
         this.subTitle = xml.find($.escapeSelector("mods:subTitle")).html();
@@ -42,9 +42,9 @@ export class APIDocument {
         this.date = xml.find($.escapeSelector("mods:originInfo") + "[eventType='publication']").find($.escapeSelector("mods:dateIssued")).html();
         this.doi = xml.find($.escapeSelector("mods:identifier") + "[type='doi']").html();
         this.urn = xml.find($.escapeSelector("mods:identifier") + "[type='urn']").html();
-        let accessConditionString = xml.find($.escapeSelector("mods:accessCondition") + "[type='use and reproduction']").attr("xlink:href").split("#");
+        let accessConditionString = (xml.find($.escapeSelector("mods:accessCondition") + "[type='use and reproduction']").attr("xlink:href") || "").split("#");
         this.accessCondition = accessConditionString[accessConditionString.length - 1];
-        
+
         // console.log(this);
     }
 }
